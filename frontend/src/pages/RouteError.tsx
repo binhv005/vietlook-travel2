@@ -10,7 +10,7 @@ export default function RouteError() {
   const status = isRouteErrorResponse(error) ? error.status : undefined
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-sand px-6 text-center">
-      <img src="/images/brand/logo-vietlook.png" alt="Vietlook Travel" className="h-16 w-auto" />
+      <img src="/images/brand/logo-vietlook.webp" alt="Vietlook Travel" className="h-16 w-auto" />
       <h1 className="mt-8 text-2xl font-bold">{zh ? '出现错误' : 'Something went wrong'}</h1>
       <p className="mt-2 max-w-md text-muted">
         {status === 404 ? (zh ? '页面不存在。' : 'This page does not exist.') : zh ? '页面加载失败，请检查网络后重试。' : 'This page could not be loaded. Please check your connection and try again.'}

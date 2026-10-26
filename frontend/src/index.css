@@ -1,8 +1,16 @@
 @import 'tailwindcss';
 
+/* SVN-Gilroy (the site's only font family), self-hosted from public/fonts/svn-gilroy/. */
+@font-face { font-family: 'SVN-Gilroy'; src: url('/fonts/svn-gilroy/SVN-Gilroy-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'SVN-Gilroy'; src: url('/fonts/svn-gilroy/SVN-Gilroy-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'SVN-Gilroy'; src: url('/fonts/svn-gilroy/SVN-Gilroy-SemiBold.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'SVN-Gilroy'; src: url('/fonts/svn-gilroy/SVN-Gilroy-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'SVN-Gilroy'; src: url('/fonts/svn-gilroy/SVN-Gilroy-ExtraBold.woff2') format('woff2'); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: 'SVN-Gilroy'; src: url('/fonts/svn-gilroy/SVN-Gilroy-Black.woff2') format('woff2'); font-weight: 900; font-style: normal; font-display: swap; }
+
 /*
- * Local fonts resized to the web fonts' metrics (values from @capsizecss/metrics), used for the moment before
- * Be Vietnam Pro / Lora / Oswald finish loading, so swapping to the real font doesn't move the text (CLS).
+ * Local font resized to Be Vietnam Pro's metrics (values from @capsizecss/metrics), used for the moment before
+ * it finishes loading, so swapping to the real font doesn't move the text (CLS).
  */
 @font-face {
   font-family: 'Be Vietnam Pro Fallback';
@@ -10,22 +18,6 @@
   size-adjust: 110.36%;
   ascent-override: 90.61%;
   descent-override: 24.01%;
-  line-gap-override: 0%;
-}
-@font-face {
-  font-family: 'Lora Fallback';
-  src: local('Georgia'), local('Noto Serif'), local('Times New Roman');
-  size-adjust: 104.98%;
-  ascent-override: 95.83%;
-  descent-override: 26.1%;
-  line-gap-override: 0%;
-}
-@font-face {
-  font-family: 'Oswald Fallback';
-  src: local('Arial'), local('ArialMT'), local('Roboto'), local('Helvetica Neue');
-  size-adjust: 81.43%;
-  ascent-override: 146.51%;
-  descent-override: 35.49%;
   line-gap-override: 0%;
 }
 
@@ -55,13 +47,11 @@
   --color-sand: #f7f4ef;
   --color-mist: #f3f7fb;
 
-  /* Be Vietnam Pro (UI and body; full Vietnamese support) + Lora (headings); Noto SC for Chinese. */
-  --font-sans: 'Be Vietnam Pro', 'Be Vietnam Pro Fallback', 'Noto Sans SC', ui-sans-serif, system-ui, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  /* Handwritten side notes (components/ui/HandNote.tsx); Chinese falls back to KaiTi-style system fonts. */
-  --font-hand: 'Caveat', 'Kaiti SC', 'STKaiti', 'KaiTi', cursive;
-  /* Tall condensed capitals for the homepage hero titles and destination cards. */
-  --font-condensed: 'Oswald', 'Oswald Fallback', 'Noto Sans SC', 'Arial Narrow', sans-serif;
-  --font-display: 'Lora', 'Lora Fallback', 'Noto Serif SC', 'Songti SC', Georgia, serif;
+  /* SVN-Gilroy everywhere (body, headings, hero titles, hand notes); Be Vietnam Pro as fallback; Noto SC for Chinese. */
+  --font-sans: 'SVN-Gilroy', 'Be Vietnam Pro', 'Be Vietnam Pro Fallback', 'Noto Sans SC', ui-sans-serif, system-ui, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-hand: var(--font-sans);
+  --font-condensed: var(--font-sans);
+  --font-display: var(--font-sans);
 
   --animate-fade-up: fade-up 0.6s ease-out both;
   @keyframes fade-up {

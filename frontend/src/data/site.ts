@@ -14,7 +14,9 @@ export const site = {
   facebook: 'https://www.facebook.com/vietlooktravelhanoi',
   mapsUrl: 'https://maps.app.goo.gl/ar5pqAHXgeW42U7W9',
   mapsEmbed: 'https://www.google.com/maps?q=Yen+Nghia,+Ha+Dong,+Hanoi,+Vietnam&output=embed',
-  logo: '/images/brand/logo-vietlook.png',
+  logo: '/images/brand/logo-vietlook.webp',
+  /** PNG copy for the favicon and structured data (JSON-LD), where PNG is the safest format. */
+  logoPng: '/images/brand/logo-vietlook.png',
   /*
    * Not supplied yet — set these when Vietlook confirms them. Until then the
    * UI hides the email row, and the WeChat button explains the ID is pending.

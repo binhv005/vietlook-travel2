@@ -12,7 +12,7 @@ export default function Home() {
     '@type': 'TravelAgency',
     name: site.name,
     url: SITE_URL,
-    logo: `${SITE_URL}${site.logo}`,
+    logo: `${SITE_URL}${site.logoPng}`,
     telephone: site.phone,
     address: { '@type': 'PostalAddress', streetAddress: '58, Yen Nghia Ward', addressLocality: 'Hanoi', addressCountry: 'VN' },
     sameAs: [site.facebook],

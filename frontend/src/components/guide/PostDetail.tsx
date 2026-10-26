@@ -109,7 +109,7 @@ export default function PostDetail({ post }: { post: Post }) {
     datePublished: post.published,
     dateModified: post.updated ?? post.published,
     author: { '@type': 'Organization', name: l(EDITOR) },
-    publisher: { '@type': 'Organization', name: site.name, logo: { '@type': 'ImageObject', url: `${SITE_URL}${site.logo}` } },
+    publisher: { '@type': 'Organization', name: site.name, logo: { '@type': 'ImageObject', url: `${SITE_URL}${site.logoPng}` } },
     inLanguage: lang === 'zh' ? 'zh-Hans' : 'en',
   }
 
