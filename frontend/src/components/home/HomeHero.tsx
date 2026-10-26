@@ -181,7 +181,8 @@ export default function HomeHero() {
             <span className="h-0.5 w-8 bg-sun" aria-hidden />
             {txt ? l((txt.d.region && getDestination(txt.d.region)?.name) || txt.d.name) : l(b.eyebrow)}
           </p>
-          <h1 className="font-condensed text-4xl leading-[1.05] font-semibold text-white sm:text-5xl lg:text-[3.5rem]">{l(txt ? txt.d.name : b.title)}</h1>
+          {/* Sized so the brand title sets on two lines ("Private & Small-Group" / "Vietnam Tours"); the lg column is narrower than sm's full width. */}
+          <h1 className="font-condensed text-3xl leading-[1.1] font-semibold text-white sm:text-5xl lg:text-[2.125rem] xl:text-[2.75rem]">{l(txt ? txt.d.name : b.title)}</h1>
           <p className="mt-5 max-w-md leading-relaxed text-white/80 md:text-lg">{l(txt ? txt.d.tagline : b.text)}</p>
           <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-4">
             <ButtonLink to={to(b.cta.path)} size="lg">

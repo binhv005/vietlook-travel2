@@ -17,12 +17,14 @@ export default function MobileMenu({ open, onClose, nav }: { open: boolean; onCl
 
   useEffect(() => {
     if (!open) return
-    document.body.style.overflow = 'hidden'
+    // Lock scrolling on <html>, not <body>: html has overflow-x: clip, so body's overflow never reaches the viewport.
+    const root = document.documentElement
+    root.style.overflow = 'hidden'
     closeRef.current?.focus()
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose()
     window.addEventListener('keydown', onKey)
     return () => {
-      document.body.style.overflow = ''
+      root.style.overflow = ''
       window.removeEventListener('keydown', onKey)
     }
   }, [open, onClose])

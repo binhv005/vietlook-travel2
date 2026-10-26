@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { ChevronLeft, ChevronRight, Images, X } from 'lucide-react'
 import { fmt, useI18n } from '@/i18n'
 import Img from '../ui/Img'
@@ -17,10 +18,12 @@ export default function Gallery({ images, title }: { images: string[]; title: st
       if (e.key === 'ArrowRight') step(1)
       if (e.key === 'ArrowLeft') step(-1)
     }
-    document.body.style.overflow = 'hidden'
+    // Lock scrolling on <html>, not <body>: html has overflow-x: clip, so body's overflow never reaches the viewport.
+    const root = document.documentElement
+    root.style.overflow = 'hidden'
     window.addEventListener('keydown', onKey)
     return () => {
-      document.body.style.overflow = ''
+      root.style.overflow = ''
       window.removeEventListener('keydown', onKey)
     }
   }, [index, close, step])
@@ -42,7 +45,8 @@ export default function Gallery({ images, title }: { images: string[]; title: st
         </button>
       </div>
 
-      {index !== null && (
+      {/* Portalled to <body> so the page's stacking contexts (e.g. the isolated tour header band) can't put the sticky booking panel above it. */}
+      {index !== null && createPortal(
         <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/90 p-4" role="dialog" aria-modal="true" aria-label={t.tour.gallery}>
           <button type="button" onClick={close} className="absolute top-4 right-4 inline-flex size-11 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20" aria-label={t.common.close} autoFocus>
             <X className="size-6" aria-hidden />
@@ -59,7 +63,8 @@ export default function Gallery({ images, title }: { images: string[]; title: st
           <button type="button" onClick={() => step(1)} className="absolute right-3 inline-flex size-11 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20" aria-label={t.common.next}>
             <ChevronRight className="size-6" aria-hidden />
           </button>
-        </div>
+        </div>,
+        document.body,
       )}
     </>
   )
