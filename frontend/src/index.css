@@ -7,6 +7,12 @@
 @font-face { font-family: 'SVN-Gilroy'; src: url('/fonts/svn-gilroy/SVN-Gilroy-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
 @font-face { font-family: 'SVN-Gilroy'; src: url('/fonts/svn-gilroy/SVN-Gilroy-ExtraBold.woff2') format('woff2'); font-weight: 800; font-style: normal; font-display: swap; }
 @font-face { font-family: 'SVN-Gilroy'; src: url('/fonts/svn-gilroy/SVN-Gilroy-Black.woff2') format('woff2'); font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: 'SVN-Gilroy'; src: url('/fonts/svn-gilroy/SVN-Gilroy-RegularItalic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'SVN-Gilroy'; src: url('/fonts/svn-gilroy/SVN-Gilroy-MediumItalic.woff2') format('woff2'); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: 'SVN-Gilroy'; src: url('/fonts/svn-gilroy/SVN-Gilroy-SemiBoldItalic.woff2') format('woff2'); font-weight: 600; font-style: italic; font-display: swap; }
+@font-face { font-family: 'SVN-Gilroy'; src: url('/fonts/svn-gilroy/SVN-Gilroy-BoldItalic.woff2') format('woff2'); font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: 'SVN-Gilroy'; src: url('/fonts/svn-gilroy/SVN-Gilroy-ExtraBoldItalic.woff2') format('woff2'); font-weight: 800; font-style: italic; font-display: swap; }
+@font-face { font-family: 'SVN-Gilroy'; src: url('/fonts/svn-gilroy/SVN-Gilroy-BlackItalic.woff2') format('woff2'); font-weight: 900; font-style: italic; font-display: swap; }
 
 /*
  * Local font resized to Be Vietnam Pro's metrics (values from @capsizecss/metrics), used for the moment before
