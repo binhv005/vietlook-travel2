@@ -24,7 +24,7 @@ function usePerView() {
  * Cards: guest photo on top, quote badge over its edge, headline, clamped text, stars and name.
  */
 export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
-  const { l } = useI18n()
+  const { l, t } = useI18n()
   const perView = usePerView()
   const [index, setIndex] = useState(0)
   const [animate, setAnimate] = useState(true)
@@ -94,7 +94,7 @@ export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
                     <figcaption className="mt-2 font-bold">
                       {r.author}
                       {r.country && <span className="text-sm font-normal text-muted"> · {r.country}</span>}
-                      <span className="ml-2 text-xs font-normal text-muted uppercase">{r.source}</span>
+                      <span className="ml-2 text-xs font-normal text-muted uppercase">{r.isSample ? t.home.reviewSample : r.source}</span>
                     </figcaption>
                   </div>
                 </div>

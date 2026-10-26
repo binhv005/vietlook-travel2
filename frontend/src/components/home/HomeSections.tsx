@@ -119,7 +119,7 @@ export function WhyBlock() {
 /** Guest reviews: renders only real reviews from data/home.ts, plus links to the Google / TripAdvisor listings. */
 export function ReviewsBlock() {
   const { t } = useI18n()
-  const shownReviews = reviews.length > 0 || !import.meta.env.DEV ? reviews : sampleReviews
+  const shownReviews = reviews.length > 0 ? reviews : sampleReviews
   return (
     <section className="bg-white py-20 md:py-24" aria-labelledby="home-reviews">
       <div className="relative container-x">
