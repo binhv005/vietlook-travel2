@@ -80,12 +80,7 @@ export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
                   >
                     <Quote className="size-5 fill-current" />
                   </span>
-                  {r.title && (
-                    <h3 className="text-xl leading-snug font-bold" lang={r.lang}>
-                      {l(r.title)}
-                    </h3>
-                  )}
-                  <blockquote className="mt-3 line-clamp-4 leading-relaxed text-muted" lang={r.lang}>
+                  <blockquote className="line-clamp-4 leading-relaxed text-muted" lang={r.lang}>
                     {l(r.text)}
                   </blockquote>
                   <div className="mt-auto pt-6">
