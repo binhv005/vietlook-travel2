@@ -6,11 +6,13 @@ import Img from '../ui/Img'
 
 const INTERVAL = 2000
 
+/** Cards per view; starts at 1 to match the prerendered HTML, card widths themselves come from CSS breakpoints. */
 function usePerView() {
-  const get = () => (typeof window === 'undefined' ? 1 : window.matchMedia('(min-width: 1024px)').matches ? 3 : window.matchMedia('(min-width: 768px)').matches ? 2 : 1)
-  const [n, setN] = useState(get)
+  const get = () => (window.matchMedia('(min-width: 1024px)').matches ? 3 : window.matchMedia('(min-width: 768px)').matches ? 2 : 1)
+  const [n, setN] = useState(1)
   useEffect(() => {
     const onResize = () => setN(get())
+    onResize()
     window.addEventListener('resize', onResize)
     return () => window.removeEventListener('resize', onResize)
   }, [])
@@ -70,7 +72,7 @@ export default function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
           onTransitionEnd={onTransitionEnd}
         >
           {items.map((r, i) => (
-            <li key={i} className="shrink-0 px-3" style={{ width: `${100 / perView}%` }} aria-hidden={canSlide && (i < index || i >= index + perView)}>
+            <li key={i} className="w-full shrink-0 px-3 md:w-1/2 lg:w-1/3" aria-hidden={canSlide && (i < index || i >= index + perView)}>
               <figure className="flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-white shadow-sm">
                 {r.image && <Img src={r.image} alt="" className="aspect-[16/10] w-full object-cover" />}
                 <div className={`relative flex flex-1 flex-col px-7 pb-7 ${r.image ? 'pt-10' : 'pt-7'}`}>
